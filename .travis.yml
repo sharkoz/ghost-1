@@ -17,7 +17,7 @@ before_script:
 
 script:
   - travis_retry docker build -t "$image" "$VARIANT"
-  - ~/official-images/test/run.sh "$image"
+  - sh -x ~/official-images/test/run.sh "$image"
 
 after_script:
   - docker images
