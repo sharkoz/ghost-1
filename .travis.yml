@@ -17,6 +17,9 @@ before_script:
 
 script:
   - travis_retry docker build -t "$image" "$VARIANT"
+  - wget https://raw.githubusercontent.com/docker-library/official-images/master/test/tests/ghost-basics/run.sh ghost-tests.sh
+  - chmod +x ghost-tests.sh
+  - bash -x ./ghost-tests.sh "$image"
   - bash -x ~/official-images/test/run.sh "$image"
 
 after_script:
