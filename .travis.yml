@@ -16,10 +16,10 @@ before_script:
 script:
   - travis_retry docker build -t "$image" "$VARIANT"
   - wget https://raw.githubusercontent.com/docker-library/official-images/master/test/tests/ghost-basics/run.sh
-  - mv run.sh ghost-tests.sh
-  - chmod +x ghost-tests.sh
-  - bash -x ./ghost-tests.sh "$image"
-  - bash -x ~/official-images/test/run.sh "$image"
+  - mv run.sh ~/official-images/test/ghost-tests.sh
+  - chmod +x ~/official-images/test/ghost-tests.sh
+  - bash -x ~/official-images/test/ghost-tests.sh "$image"
+  - #bash -x ~/official-images/test/run.sh "$image"
 
 after_script:
   - docker images
