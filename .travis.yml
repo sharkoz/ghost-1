@@ -7,6 +7,9 @@ env:
 
 install:
   - git clone https://github.com/sharkoz/official-images.git ~/official-images
+  - cd ~/official-images
+  - git checkout patch-1
+  - cd -
 
 before_script:
   - env | sort
